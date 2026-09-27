@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Recipe of the Day - Group Challenge Day 1</title>
+</head>
+<body>
+
+<!-- HTML element where the chosen recipe will be displayed -->
+<div id="recipe"></div>
+
+<script>
+    //Variable: the time of day we want to test (change to "Sunset" to see the dinner recipe)
+    var timeOfDay = "Noon";
+
+    //Function: builds the lunch recipe (heading + 5 steps) and returns it as one string
+    function lunchRecipe() {
+        var recipe = "<h2>Lunch Recipe</h2>";
+        recipe += "1. Prepare burger patty<br>";
+        recipe += "2. Grill patty on medium heat<br>";
+        recipe += "3. Toast bun while grilling meat<br>";
+        recipe += "4. Prepare toppings<br>";
+        recipe += "5. Assemble ingredients into hamburger when done";
+        return recipe;
+    }
+
+    //Function: builds the dinner recipe (heading + 5 steps) and returns it as one string
+    function dinnerRecipe() {
+        var recipe = "<h2>Dinner Recipe</h2>";
+        recipe += "1. Season salmon meat<br>";
+        recipe += "2. Cook salmon on skillet in medium heat for 5 minutes each side<br>";
+        recipe += "3. Prepare salad<br>";
+        recipe += "4. Add seasonings and dressing on salad and toss<br>";
+        recipe += "5. Transfer salmon and salad on plate";
+        return recipe;
+    }
+
+    //Function: decision making - picks which recipe to output based on the time of day
+    function showRecipe(time) {
+        var output;
+
+        if (time == "Noon") {
+            output = lunchRecipe(); //Noon => lunch recipe
+        } else if (time == "Sunset") {
+            output = dinnerRecipe(); //Sunset => dinner recipe
+        } else {
+            output = "<p>No recipe for " + time + ". Try Noon or Sunset.</p>";
+        }
+
+        //Output the chosen recipe to the document
+        document.getElementById("recipe").innerHTML = output;
+    }
+
+    //Call the function and pass in the time of day variable
+    showRecipe(timeOfDay);
+</script>
+
+</body>
+</html>
